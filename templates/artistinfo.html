@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/artisthandler.css" />
+    <title>Artist Info: {{.Artist.Name}}</title>
+  </head>
+  <body class="body2">
+    <div class="bckbut">
+      <a href="/artist">
+        <button class="artbutt">Back</button>
+      </a>
+    </div>
+    <div class="artistname"><h1>{{.Artist.Name}}</h1></div>
+    <div class="artistbox1">
+      <img src="{{.Artist.Image}}" id="artistimage" class="artistimage" />
+    </div>
+    <div class="artistbox2">
+      <h2>Members:</h2>
+      <ul class="artistlist">
+        {{range .Artist.Members}}
+        <li>{{.}}</li>
+        {{end}}
+
+        <h3>Created in:</h3>
+        {{.Artist.CreationDate}}
+        <h4 class="pad">First album released:</h4>
+        {{.Artist.FirstAlbum}}
+      </ul>
+    </div>
+    <div class="artistbox3">
+      <h2>Concerts:</h2>
+      <ul class="concert-list">
+        {{range $location, $dates := .Relations.DatesLocations}}
+        <li>
+          <strong>{{$location}}</strong>
+          <ul class="date-list">
+            {{range $dates}}
+            <li>{{.}}</li>
+            {{end}}
+          </ul>
+        </li>
+        {{end}}
+      </ul>
+    </div>
+  </body>
+</html>
+<!-- teie ka xoxo -->

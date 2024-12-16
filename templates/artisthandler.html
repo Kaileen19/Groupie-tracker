@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/artisthandler.css" />
+    <title>Groupie-Tracker</title>
+  </head>
+  <body class="body1">
+    <div class="notouchy">
+      <a href="/">
+        <button class="btn">Back</button>
+      </a>
+    </div>
+
+    <h1 class="h1">Groupie-Tracker</h1>
+
+    {{range .}}
+    <div class="imgandbtn">
+      <div name="removeclick">
+        <a class="action" href="/artist/{{.Name}}">
+          <div class="picrotate">
+            <img class="img" src="{{.Image}}" alt="{{.Name}}" />
+          </div>
+        </a>
+      </div>
+      <div name="removeclick">
+        <a class="action" href="/artist/{{.Name}}">
+          <button class="btn">{{.Name}}</button>
+        </a>
+      </div>
+    </div>
+
+    {{end}}
+  </body>
+</html>
+<!-- you are very cute -->
